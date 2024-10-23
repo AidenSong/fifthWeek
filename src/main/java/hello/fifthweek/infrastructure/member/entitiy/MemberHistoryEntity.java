@@ -1,4 +1,4 @@
-package hello.fifthweek.infrastructure.entitiy;
+package hello.fifthweek.infrastructure.member.entitiy;
 
 
 import jakarta.persistence.Column;

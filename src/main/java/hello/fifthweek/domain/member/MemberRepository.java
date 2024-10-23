@@ -1,8 +1,8 @@
 package hello.fifthweek.domain.member;
 
 import hello.fifthweek.domain.member.record.response.MemberInfoDomainResponse;
-import hello.fifthweek.infrastructure.entitiy.MemberHistoryEntity;
-import hello.fifthweek.infrastructure.entitiy.MemberRegistEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberRegistEntity;
 
 public interface MemberRepository {
 

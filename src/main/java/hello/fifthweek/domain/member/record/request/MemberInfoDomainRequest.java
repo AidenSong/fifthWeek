@@ -1,9 +1,7 @@
 package hello.fifthweek.domain.member.record.request;
 
 
-import hello.fifthweek.infrastructure.entitiy.MemberInfoEntity;
-
-import java.time.LocalDateTime;
+import hello.fifthweek.infrastructure.member.entitiy.MemberInfoEntity;
 
 public record MemberInfoDomainRequest(
         long memberId,

@@ -1,6 +1,6 @@
-package hello.fifthweek.infrastructure.jparepository;
+package hello.fifthweek.infrastructure.member.jparepository;
 
-import hello.fifthweek.infrastructure.entitiy.MemberInfoEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberInfoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

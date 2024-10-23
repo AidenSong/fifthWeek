@@ -1,6 +1,6 @@
 package hello.fifthweek.domain.member.record.request;
 
-import hello.fifthweek.infrastructure.entitiy.MemberHistoryEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryEntity;
 
 import java.time.LocalDateTime;
 

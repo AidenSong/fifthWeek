@@ -1,7 +1,7 @@
 package hello.fifthweek.domain.member.record.request;
 
 
-import hello.fifthweek.infrastructure.entitiy.MemberRegistEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberRegistEntity;
 
 public record MemberRegistDomainRequest(long memberId, int memberBalance) {
 
