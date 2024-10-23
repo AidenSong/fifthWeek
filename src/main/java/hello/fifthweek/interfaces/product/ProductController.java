@@ -44,8 +44,13 @@ public class ProductController {
         return productService.productAddHistory(productAddHistoryInterfacesRequest.toDomain());
     }
 
-    @GetMapping("productQuantity")
+    @GetMapping("/productQuantity")
     public int productQuantity(@RequestBody ProductQuantityInterfacesRequest productQuantityInterfacesRequest) {
         return productService.productQuantity(productQuantityInterfacesRequest.toDomain());
+    }
+
+    @PostMapping("/productIndeAmount")
+    public boolean productIndeAmount(@RequestBody ProductIndeAmountInterfacesRequest productIndeAmountInterfacesRequest) {
+        return productService.productIndeAmount(productIndeAmountInterfacesRequest.toDomain());
     }
 }

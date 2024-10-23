@@ -39,4 +39,13 @@ public class ProductService {
         ProductQuantityInfraEntity response = productRepository.productQuantity(productQuantityDomainRequest.toEntity());
         return response.getProductQuantity();
     }
+
+    public boolean productIndeAmount(ProductIndeAmountDomainRequest productIndeAmountDomainRequest) {
+        ProductQuantityInfraEntity quantityResponse = productRepository.productQuantity(new ProductQuantityDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOption()).toEntity());
+        int quantity = quantityResponse.getProductQuantity();
+        int resultQuantity = quantityResponse.getProductQuantity() + quantity;
+
+        ProductIndeAmountDomainRequest request = new ProductIndeAmountDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOption(), resultQuantity);
+        return productRepository.productIndeAmount(request.toEntity());
+    }
 }

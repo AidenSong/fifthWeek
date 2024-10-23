@@ -17,4 +17,6 @@ public interface ProductRepository {
     boolean productAddHistory(ProductAddHistoryInfraEntity productAddHistoryInfraEntity);
 
     ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity);
+
+    boolean productIndeAmount(ProductIndeAmountInfraEntity productIndeAmountInfraEntity);
 }

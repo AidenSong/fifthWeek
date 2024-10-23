@@ -63,4 +63,12 @@ public class ProductRepositoryImpl implements ProductRepository {
     public ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity) {
         return productQuantityJpaRepository.findByTwoOption(productQuantityInfraEntity.getProductId(), productQuantityInfraEntity.getProductOption());
     }
+
+    public boolean productIndeAmount(ProductIndeAmountInfraEntity productIndeAmountInfraEntity) {
+        ProductQuantityInfraEntity response = productIndeAmountJpaRepository.updateByProductId(productIndeAmountInfraEntity.getProductId(), productIndeAmountInfraEntity.getProductOption(), productIndeAmountInfraEntity.getProductQuantity());
+        if (response == null) {
+            return false;
+        }
+        return true;
+    }
 }
