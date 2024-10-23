@@ -1,6 +1,7 @@
 package hello.fifthweek.domain.product;
 
 
+import hello.fifthweek.domain.product.record.request.ProductOptionRegistDomainRequest;
 import hello.fifthweek.domain.product.record.request.ProductRegistDomainRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -17,5 +18,9 @@ public class ProductService {
 
     public boolean productRegist(ProductRegistDomainRequest productRegistDomainRequest) {
         return productRepository.productRegist(productRegistDomainRequest.toEntity());
+    }
+
+    public boolean productOptionRegist(ProductOptionRegistDomainRequest productOptionRegistDomainRequest) {
+        return productRepository.productOptionRegist(productOptionRegistDomainRequest.toEntity());
     }
 }

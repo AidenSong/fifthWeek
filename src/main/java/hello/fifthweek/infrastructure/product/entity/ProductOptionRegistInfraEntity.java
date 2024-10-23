@@ -11,12 +11,18 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "PRODUCT_INFO")
-public class ProductRegistEntity {
+@Table(name = "PRODUCT_OPTION_INFO")
+public class ProductOptionRegistInfraEntity {
 
     @Id
     @Column(name = "PRODUCT_ID")
     private long productId;
-    @Column(name = "PRODUCT_NAME")
-    private String productName;
+
+    @Column(name = "PRODUCT_OPTION")
+    private String productOption;
+
+    @Column(name = "PRODUCT_QUANTITY")
+    private int productQuantity;
+
+
 }

@@ -1,4 +1,4 @@
-package hello.fifthweek.interfaces.product.record;
+package hello.fifthweek.interfaces.product.record.request;
 
 
 import hello.fifthweek.domain.product.record.request.ProductRegistDomainRequest;
