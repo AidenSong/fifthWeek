@@ -4,7 +4,8 @@ import hello.fifthweek.infrastructure.product.entity.ProductIndeAmountInfraEntit
 
 public record ProductIndeAmountDomainRequest(
         long productId,
-        String productOption
+        String productOption,
+        int indeAmount
     ) {
 
 

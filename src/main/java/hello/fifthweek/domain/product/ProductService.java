@@ -1,10 +1,7 @@
 package hello.fifthweek.domain.product;
 
 
-import hello.fifthweek.domain.product.record.request.ProductAddHistoryDomainRequest;
-import hello.fifthweek.domain.product.record.request.ProductOptionRegistDomainRequest;
-import hello.fifthweek.domain.product.record.request.ProductQuantityDomainRequest;
-import hello.fifthweek.domain.product.record.request.ProductRegistDomainRequest;
+import hello.fifthweek.domain.product.record.request.*;
 import hello.fifthweek.domain.product.record.response.ProductInfoDomainResponse;
 import hello.fifthweek.infrastructure.product.entity.ProductQuantityInfraEntity;
 import hello.fifthweek.interfaces.product.record.response.ProductInfoInterfacesResponse;
@@ -42,6 +39,4 @@ public class ProductService {
         ProductQuantityInfraEntity response = productRepository.productQuantity(productQuantityDomainRequest.toEntity());
         return response.getProductQuantity();
     }
-
-
 }

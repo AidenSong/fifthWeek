@@ -48,6 +48,4 @@ public class ProductController {
     public int productQuantity(@RequestBody ProductQuantityInterfacesRequest productQuantityInterfacesRequest) {
         return productService.productQuantity(productQuantityInterfacesRequest.toDomain());
     }
-
-
 }

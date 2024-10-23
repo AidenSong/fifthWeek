@@ -4,10 +4,11 @@ import hello.fifthweek.domain.product.record.request.ProductIndeAmountDomainRequ
 
 public record ProductIndeAmountInterfacesRequest(
         long productId,
-        String productOption
+        String productOption,
+        int indeAmount
     ) {
 
     public ProductIndeAmountDomainRequest toDomain() {
-        return new ProductIndeAmountDomainRequest(productId, productOption);
+        return new ProductIndeAmountDomainRequest(productId, productOption, indeAmount);
     }
 }

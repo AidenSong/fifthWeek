@@ -62,6 +62,5 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity) {
         return productQuantityJpaRepository.findByTwoOption(productQuantityInfraEntity.getProductId(), productQuantityInfraEntity.getProductOption());
-
     }
 }
