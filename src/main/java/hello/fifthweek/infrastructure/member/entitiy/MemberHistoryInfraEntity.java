@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "MEMBER_HISOTRY")
-public class MemberHistoryEntity {
+public class MemberHistoryInfraEntity {
 
     @Id
     private long memberId;

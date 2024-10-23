@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "MEMBER_INFO")
-public class MemberInfoEntity {
+public class MemberInfoInfraEntity {
 
     @Id
     private long MEMBER_ID;

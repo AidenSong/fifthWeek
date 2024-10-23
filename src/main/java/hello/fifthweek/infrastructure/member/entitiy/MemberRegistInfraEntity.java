@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "MEMBER_INFO")
-public class MemberRegistEntity {
+public class MemberRegistInfraEntity {
 
     @Id
     @Column(name = "MEMBER_ID")

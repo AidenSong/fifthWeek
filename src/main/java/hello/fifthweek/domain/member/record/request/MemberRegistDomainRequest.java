@@ -1,12 +1,12 @@
 package hello.fifthweek.domain.member.record.request;
 
 
-import hello.fifthweek.infrastructure.member.entitiy.MemberRegistEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberRegistInfraEntity;
 
 public record MemberRegistDomainRequest(long memberId, int memberBalance) {
 
-    public MemberRegistEntity toEntity() {
-        MemberRegistEntity entity = new MemberRegistEntity();
+    public MemberRegistInfraEntity toEntity() {
+        MemberRegistInfraEntity entity = new MemberRegistInfraEntity();
         entity.setMemberId(memberId);
         entity.setMemberBalance(memberBalance);
 

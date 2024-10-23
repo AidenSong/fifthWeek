@@ -1,6 +1,6 @@
 package hello.fifthweek.domain.member.record.request;
 
-import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryInfraEntity;
 
 import java.time.LocalDateTime;
 
@@ -12,8 +12,8 @@ public record MemberHistoryDomainRequest(
     ) {
 
 
-    public MemberHistoryEntity toEntity() {
-        MemberHistoryEntity entitiy = new MemberHistoryEntity();
+    public MemberHistoryInfraEntity toEntity() {
+        MemberHistoryInfraEntity entitiy = new MemberHistoryInfraEntity();
         entitiy.setMemberId(memberId);
         entitiy.setIndeAmount(indeAmount);
         entitiy.setTotalBalacne(totalBalance);

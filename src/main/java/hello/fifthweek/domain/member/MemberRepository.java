@@ -1,14 +1,14 @@
 package hello.fifthweek.domain.member;
 
 import hello.fifthweek.domain.member.record.response.MemberInfoDomainResponse;
-import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryEntity;
-import hello.fifthweek.infrastructure.member.entitiy.MemberRegistEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryInfraEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberRegistInfraEntity;
 
 public interface MemberRepository {
 
-    boolean memberRegist(MemberRegistEntity memberRegistEntity);
+    boolean memberRegist(MemberRegistInfraEntity memberRegistInfraEntity);
 
     MemberInfoDomainResponse memberInfo(long memberId);
 
-    boolean memberHistory(MemberHistoryEntity memberHistoryEntity);
+    boolean memberHistory(MemberHistoryInfraEntity memberHistoryInfraEntity);
 }

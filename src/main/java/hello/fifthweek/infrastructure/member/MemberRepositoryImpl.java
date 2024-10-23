@@ -3,9 +3,9 @@ package hello.fifthweek.infrastructure.member;
 
 import hello.fifthweek.domain.member.MemberRepository;
 import hello.fifthweek.domain.member.record.response.MemberInfoDomainResponse;
-import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryEntity;
-import hello.fifthweek.infrastructure.member.entitiy.MemberInfoEntity;
-import hello.fifthweek.infrastructure.member.entitiy.MemberRegistEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryInfraEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberInfoInfraEntity;
+import hello.fifthweek.infrastructure.member.entitiy.MemberRegistInfraEntity;
 import hello.fifthweek.infrastructure.member.jparepository.MemberHistoryJpaRepository;
 import hello.fifthweek.infrastructure.member.jparepository.MemberInfoJpaRepository;
 import hello.fifthweek.infrastructure.member.jparepository.MemberRegistJpaRepository;
@@ -27,9 +27,9 @@ public class MemberRepositoryImpl implements MemberRepository {
 
 
     @Override
-    public boolean memberRegist(MemberRegistEntity memberRegistEntity) {
+    public boolean memberRegist(MemberRegistInfraEntity memberRegistInfraEntity) {
 
-        MemberRegistEntity response = memberRegistJpaRepository.save(memberRegistEntity);
+        MemberRegistInfraEntity response = memberRegistJpaRepository.save(memberRegistInfraEntity);
         if (response == null) {
             return false;
         }
@@ -39,16 +39,16 @@ public class MemberRepositoryImpl implements MemberRepository {
     @Override
     public MemberInfoDomainResponse memberInfo(long memberId) {
 
-        Optional<MemberInfoEntity> response = memberInfoJpaRepository.findById(memberId);
+        Optional<MemberInfoInfraEntity> response = memberInfoJpaRepository.findById(memberId);
         if (response == null) {
             return null;
         }
         return response.get().toDomain();
     }
 
-    public boolean memberHistory(MemberHistoryEntity memberHistoryEntity) {
+    public boolean memberHistory(MemberHistoryInfraEntity memberHistoryInfraEntity) {
 
-        MemberHistoryEntity response = memberHistoryJpaRepository.save(memberHistoryEntity);
+        MemberHistoryInfraEntity response = memberHistoryJpaRepository.save(memberHistoryInfraEntity);
         if (response == null) {
             return false;
         }
