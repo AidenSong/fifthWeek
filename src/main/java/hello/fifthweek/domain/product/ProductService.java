@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -46,6 +48,10 @@ public class ProductService {
         int resultQuantity = quantityResponse.getProductQuantity() + quantity;
 
         ProductIndeAmountDomainRequest request = new ProductIndeAmountDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOption(), resultQuantity);
-        return productRepository.productIndeAmount(request.toEntity());
+        ProductAddHistoryDomainRequest historyRequest = new ProductAddHistoryDomainRequest(productIndeAmountDomainRequest.productId(), quantity, resultQuantity, LocalDateTime.now());
+
+        boolean response = productRepository.productIndeAmount(request.toEntity());
+        boolean historyResponse = productRepository.productAddHistory(historyRequest.toEntity());
+        return response && historyResponse;
     }
 }
