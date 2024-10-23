@@ -3,6 +3,8 @@ package hello.fifthweek.domain.product;
 
 import hello.fifthweek.domain.product.record.request.ProductOptionRegistDomainRequest;
 import hello.fifthweek.domain.product.record.request.ProductRegistDomainRequest;
+import hello.fifthweek.domain.product.record.response.ProductInfoDomainResponse;
+import hello.fifthweek.interfaces.product.record.response.ProductInfoInterfacesResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,5 +24,10 @@ public class ProductService {
 
     public boolean productOptionRegist(ProductOptionRegistDomainRequest productOptionRegistDomainRequest) {
         return productRepository.productOptionRegist(productOptionRegistDomainRequest.toEntity());
+    }
+
+    public ProductInfoInterfacesResponse productInfo(long productId) {
+        ProductInfoDomainResponse response = productRepository.productInfo(productId);
+        return response.toInterfaces();
     }
 }
