@@ -2,6 +2,7 @@ package hello.fifthweek.interfaces.product;
 
 
 import hello.fifthweek.domain.product.ProductService;
+import hello.fifthweek.interfaces.product.record.request.ProductAddHistoryInterfacesRequest;
 import hello.fifthweek.interfaces.product.record.request.ProductOptionRegistInterfacesRequest;
 import hello.fifthweek.interfaces.product.record.request.ProductRegistInterfacesRequest;
 import hello.fifthweek.interfaces.product.record.response.ProductInfoInterfacesResponse;
@@ -34,6 +35,11 @@ public class ProductController {
     @GetMapping("/productInfo")
     public ProductInfoInterfacesResponse productInfo(long productId) {
         return productService.productInfo(productId);
+    }
+
+    @PostMapping("/addHistory")
+    public boolean productAddHistory(@RequestBody ProductAddHistoryInterfacesRequest productAddHistoryInterfacesRequest) {
+        return productService.productAddHistory(productAddHistoryInterfacesRequest.toDomain());
     }
 
 }

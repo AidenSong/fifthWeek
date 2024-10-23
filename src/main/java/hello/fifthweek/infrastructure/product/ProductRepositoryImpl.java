@@ -3,9 +3,11 @@ package hello.fifthweek.infrastructure.product;
 
 import hello.fifthweek.domain.product.ProductRepository;
 import hello.fifthweek.domain.product.record.response.ProductInfoDomainResponse;
+import hello.fifthweek.infrastructure.product.entity.ProductAddHistoryInfraEntity;
 import hello.fifthweek.infrastructure.product.entity.ProductInfoInfraEntity;
 import hello.fifthweek.infrastructure.product.entity.ProductOptionRegistInfraEntity;
 import hello.fifthweek.infrastructure.product.entity.ProductRegistInfraEntity;
+import hello.fifthweek.infrastructure.product.jparepository.ProductAddHistoryJpaRepository;
 import hello.fifthweek.infrastructure.product.jparepository.ProductInfoJpaRepository;
 import hello.fifthweek.infrastructure.product.jparepository.ProductOptionRegistJpaRepository;
 import hello.fifthweek.infrastructure.product.jparepository.ProductRegistJpaRepository;
@@ -21,6 +23,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     private final ProductRegistJpaRepository productRegistJpaRepository;
     private final ProductOptionRegistJpaRepository productOptionRegistJpaRepository;
     private final ProductInfoJpaRepository productInfoJpaRepository;
+    private final ProductAddHistoryJpaRepository productAddHistoryJpaRepository;
 
 
 
@@ -49,5 +52,14 @@ public class ProductRepositoryImpl implements ProductRepository {
             return null;
         }
         return response.get().toDomain();
+    }
+
+    @Override
+    public boolean productAddHistory(ProductAddHistoryInfraEntity productAddHistoryInfraEntity) {
+        ProductAddHistoryInfraEntity response = productAddHistoryJpaRepository.save(productAddHistoryInfraEntity);
+        if (response == null) {
+            return false;
+        }
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 package hello.fifthweek.domain.product;
 
 
+import hello.fifthweek.domain.product.record.request.ProductAddHistoryDomainRequest;
 import hello.fifthweek.domain.product.record.request.ProductOptionRegistDomainRequest;
 import hello.fifthweek.domain.product.record.request.ProductRegistDomainRequest;
 import hello.fifthweek.domain.product.record.response.ProductInfoDomainResponse;
@@ -29,5 +30,9 @@ public class ProductService {
     public ProductInfoInterfacesResponse productInfo(long productId) {
         ProductInfoDomainResponse response = productRepository.productInfo(productId);
         return response.toInterfaces();
+    }
+
+    public boolean productAddHistory(ProductAddHistoryDomainRequest productAddHistoryDomainRequest) {
+        return productRepository.productAddHistory(productAddHistoryDomainRequest.toEntity());
     }
 }
