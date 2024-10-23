@@ -2,9 +2,7 @@ package hello.fifthweek.domain.product;
 
 
 import hello.fifthweek.domain.product.record.response.ProductInfoDomainResponse;
-import hello.fifthweek.infrastructure.product.entity.ProductAddHistoryInfraEntity;
-import hello.fifthweek.infrastructure.product.entity.ProductOptionRegistInfraEntity;
-import hello.fifthweek.infrastructure.product.entity.ProductRegistInfraEntity;
+import hello.fifthweek.infrastructure.product.entity.*;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,4 +15,6 @@ public interface ProductRepository {
     ProductInfoDomainResponse productInfo(long productId);
 
     boolean productAddHistory(ProductAddHistoryInfraEntity productAddHistoryInfraEntity);
+
+    ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity);
 }
