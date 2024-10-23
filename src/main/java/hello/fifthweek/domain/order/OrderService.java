@@ -1,6 +1,7 @@
 package hello.fifthweek.domain.order;
 
 
+import hello.fifthweek.domain.order.record.request.OrderAddHistoryDomainRequest;
 import hello.fifthweek.domain.order.record.request.OrderInfoDomainRequest;
 import hello.fifthweek.domain.order.record.response.OrderInfoDomainResponse;
 import hello.fifthweek.interfaces.order.record.response.OrderInfoInterfacesResponse;
@@ -19,10 +20,11 @@ public class OrderService {
 
 
     public OrderInfoInterfacesResponse orderInfo(OrderInfoDomainRequest orderInfoDomainRequest) {
-        OrderInfoDomainResponse response = orderRepository.orderinfo(orderInfoDomainRequest.toEntity());
+        OrderInfoDomainResponse response = orderRepository.orderInfo(orderInfoDomainRequest.toEntity());
         return response.toInterfaces();
     }
 
-
-
+    public boolean orderAddHistory(OrderAddHistoryDomainRequest orderAddHistoryDomainRequest) {
+        return orderRepository.orderAddHistory(orderAddHistoryDomainRequest.toEntity());
+    }
 }
