@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductQuantityJpaRepository extends JpaRepository<ProductQuantityInfraEntity, Long> {
 
-    ProductQuantityInfraEntity findByTwoOption(long productId, String productOption);
+    ProductQuantityInfraEntity findByProductIdAndProductOption(long productId, String productOption);
 }
