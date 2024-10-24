@@ -22,14 +22,17 @@ public class ProductInfoInfraEntity {
     @Column(name = "PRODUCT_NAME")
     private String productName;
 
-    @Column(name = "PRODUCT_OPTION")
-    private String productOption;
+    @Column(name = "PRODUCT_OPTION_ID")
+    private long productOptionId;
+
+    @Column(name = "PRODUCT_OPTION_NAME")
+    private String productOptionName;
 
     @Column(name = "PRODUCT_QUANTITY")
     private int productQuantity;
 
 
     public ProductInfoDomainResponse toDomain() {
-        return new ProductInfoDomainResponse(productId, productName, productOption, productQuantity);
+        return new ProductInfoDomainResponse(productId, productName, productOptionId, productOptionName, productQuantity);
     }
 }

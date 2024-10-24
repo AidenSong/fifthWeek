@@ -6,8 +6,9 @@ import java.time.LocalDateTime;
 
 public record ProductAddHistoryDomainRequest(
         long productId,
+        long productOptionId,
         int indeAmount,
-        int indeQuantity,
+        int totalQuantity,
         LocalDateTime createdAt
 ) {
 
@@ -15,8 +16,9 @@ public record ProductAddHistoryDomainRequest(
     public ProductAddHistoryInfraEntity toEntity() {
         ProductAddHistoryInfraEntity entity = new ProductAddHistoryInfraEntity();
         entity.setProducId(productId);
+        entity.setProductOptionId(productOptionId);
         entity.setIndeAmount(indeAmount);
-        entity.setIndeQuantity(indeQuantity);
+        entity.setTotalQuantity(totalQuantity);
         entity.setCreateAt(createdAt);
 
         return entity;

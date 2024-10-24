@@ -20,11 +20,14 @@ public class ProductAddHistoryInfraEntity {
     @Column(name = "PRODUCT_ID")
     private long producId;
 
+    @Column(name = "PRODUCT_OPTION_ID")
+    private long productOptionId;
+
     @Column(name = "INDE_AMOUNT")
     private int indeAmount;
 
-    @Column(name = "INDE_QUANTITY")
-    private int indeQuantity;
+    @Column(name = "TOTAL_QUANTITY")
+    private int totalQuantity;
 
     @Column(name = "CREATE_AT")
     private LocalDateTime createAt;

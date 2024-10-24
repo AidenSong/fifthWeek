@@ -43,12 +43,12 @@ public class ProductService {
     }
 
     public boolean productIndeAmount(ProductIndeAmountDomainRequest productIndeAmountDomainRequest) {
-        ProductQuantityInfraEntity quantityResponse = productRepository.productQuantity(new ProductQuantityDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOption()).toEntity());
+        ProductQuantityInfraEntity quantityResponse = productRepository.productQuantity(new ProductQuantityDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOptionId()).toEntity());
         int quantity = quantityResponse.getProductQuantity();
         int resultQuantity = quantityResponse.getProductQuantity() + quantity;
 
-        ProductIndeAmountDomainRequest request = new ProductIndeAmountDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOption(), resultQuantity);
-        ProductAddHistoryDomainRequest historyRequest = new ProductAddHistoryDomainRequest(productIndeAmountDomainRequest.productId(), quantity, resultQuantity, LocalDateTime.now());
+        ProductIndeAmountDomainRequest request = new ProductIndeAmountDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOptionId(), resultQuantity);
+        ProductAddHistoryDomainRequest historyRequest = new ProductAddHistoryDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOptionId(), quantity, resultQuantity, LocalDateTime.now());
 
         boolean response = productRepository.productIndeAmount(request.toEntity());
         boolean historyResponse = productRepository.productAddHistory(historyRequest.toEntity());

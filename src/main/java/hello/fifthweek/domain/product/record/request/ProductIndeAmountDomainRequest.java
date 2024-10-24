@@ -5,7 +5,7 @@ import lombok.Setter;
 
 public record ProductIndeAmountDomainRequest(
         long productId,
-        String productOption,
+        long productOptionId,
         int indeAmount
     ) {
 
@@ -13,7 +13,7 @@ public record ProductIndeAmountDomainRequest(
     public ProductIndeAmountInfraEntity toEntity() {
         ProductIndeAmountInfraEntity entity = new ProductIndeAmountInfraEntity();
         entity.setProductId(productId);
-        entity.setProductOption(productOption);
+        entity.setProductOptionId(productOptionId);
         entity.setProductQuantity(indeAmount);
 
         return entity;

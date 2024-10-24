@@ -4,14 +4,16 @@ import hello.fifthweek.infrastructure.product.entity.ProductOptionRegistInfraEnt
 
 public record ProductOptionRegistDomainRequest(
         long productId,
-        String productOption,
+        long productOptionId,
+        String productOptionName,
         int productQuantity
     ) {
 
     public ProductOptionRegistInfraEntity toEntity() {
         ProductOptionRegistInfraEntity entity = new ProductOptionRegistInfraEntity();
         entity.setProductId(productId);
-        entity.setProductOption(productOption);
+        entity.setProductOptionId(productOptionId);
+        entity.setProductOptionName(productOptionName);
         entity.setProductQuantity(productQuantity);
 
         return entity;

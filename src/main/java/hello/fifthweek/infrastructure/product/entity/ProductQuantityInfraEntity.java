@@ -19,8 +19,8 @@ public class ProductQuantityInfraEntity {
     @Column(name = "PRODUCT_ID")
     private long productId;
 
-    @Column(name = "PRODUCT_OPTION")
-    private String productOption;
+    @Column(name = "PRODUCT_OPTION_ID")
+    private long productOptionId;
 
     @Column(name = "PRODUCT_QUANTITY")
     private int productQuantity;

@@ -6,11 +6,12 @@ import hello.fifthweek.interfaces.product.record.response.ProductInfoInterfacesR
 public record ProductInfoDomainResponse(
         long productId,
         String productName,
-        String productOption,
+        long productOptionId,
+        String productOptionName,
         int productQuantity
     ) {
 
     public ProductInfoInterfacesResponse toInterfaces() {
-        return new ProductInfoInterfacesResponse(productId, productName, productOption, productQuantity);
+        return new ProductInfoInterfacesResponse(productId, productName,productOptionId, productOptionName, productQuantity);
     }
 }

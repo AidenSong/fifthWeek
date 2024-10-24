@@ -61,11 +61,11 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity) {
-        return productQuantityJpaRepository.findByProductIdAndProductOption(productQuantityInfraEntity.getProductId(), productQuantityInfraEntity.getProductOption());
+        return productQuantityJpaRepository.findByProductIdAndProductOption(productQuantityInfraEntity.getProductId(), productQuantityInfraEntity.getProductOptionId());
     }
 
     public boolean productIndeAmount(ProductIndeAmountInfraEntity productIndeAmountInfraEntity) {
-        ProductQuantityInfraEntity response = productIndeAmountJpaRepository.updateByProductId(productIndeAmountInfraEntity.getProductId(), productIndeAmountInfraEntity.getProductOption(), productIndeAmountInfraEntity.getProductQuantity());
+        ProductQuantityInfraEntity response = productIndeAmountJpaRepository.updateByProductId(productIndeAmountInfraEntity.getProductId(), productIndeAmountInfraEntity.getProductOptionId(), productIndeAmountInfraEntity.getProductQuantity());
         if (response == null) {
             return false;
         }

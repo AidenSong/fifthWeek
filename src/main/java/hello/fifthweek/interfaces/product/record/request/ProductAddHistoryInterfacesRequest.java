@@ -6,13 +6,14 @@ import java.time.LocalDateTime;
 
 public record ProductAddHistoryInterfacesRequest(
         long productId,
+        long productOptionId,
         int indeAmount,
-        int indeQuantity,
+        int totalQuantity,
         LocalDateTime createdAt
     ) {
 
 
     public ProductAddHistoryDomainRequest toDomain() {
-        return new ProductAddHistoryDomainRequest(productId, indeAmount, indeQuantity, createdAt);
+        return new ProductAddHistoryDomainRequest(productId, productOptionId, indeAmount, totalQuantity, createdAt);
     }
 }
