@@ -3,18 +3,11 @@ package hello.fifthweek.interfaces.product;
 
 import hello.fifthweek.domain.product.ProductService;
 import hello.fifthweek.interfaces.member.record.request.ProductQuantityInterfacesRequest;
-import hello.fifthweek.interfaces.product.record.request.ProductAddHistoryInterfacesRequest;
-import hello.fifthweek.interfaces.product.record.request.ProductIndeAmountInterfacesRequest;
-import hello.fifthweek.interfaces.product.record.request.ProductOptionRegistInterfacesRequest;
-import hello.fifthweek.interfaces.product.record.request.ProductRegistInterfacesRequest;
+import hello.fifthweek.interfaces.product.record.request.*;
 import hello.fifthweek.interfaces.product.record.response.ProductInfoInterfacesResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController("/product")
@@ -39,8 +32,8 @@ public class ProductController {
 
     @GetMapping("/productInfo")
     @Operation(summary = "상품정보 조회")
-    public ProductInfoInterfacesResponse productInfo(long productId) {
-        return productService.productInfo(productId);
+    public ProductInfoInterfacesResponse productInfo(@RequestBody ProductInfoInterfacesRequest productInfoInterfacesRequest) {
+        return productService.productInfo(productInfoInterfacesRequest.toDomain());
     }
 
     @PostMapping("/productAddHistory")
@@ -55,7 +48,7 @@ public class ProductController {
         return productService.productQuantity(productQuantityInterfacesRequest.toDomain());
     }
 
-    @PostMapping("/productIndeAmount")
+    @PutMapping("/productIndeAmount")
     @Operation(summary = "상품재고 증감")
     public boolean productIndeAmount(@RequestBody ProductIndeAmountInterfacesRequest productIndeAmountInterfacesRequest) {
         return productService.productIndeAmount(productIndeAmountInterfacesRequest.toDomain());

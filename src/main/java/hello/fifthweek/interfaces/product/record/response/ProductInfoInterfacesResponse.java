@@ -8,5 +8,6 @@ public record ProductInfoInterfacesResponse(
         String productName,
         long productOptionId,
         String productOptionName,
-        int productQuantity
+        int productQuantity,
+        int productPrice
     ) { }

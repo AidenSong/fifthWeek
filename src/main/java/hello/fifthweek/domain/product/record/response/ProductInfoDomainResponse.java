@@ -8,10 +8,11 @@ public record ProductInfoDomainResponse(
         String productName,
         long productOptionId,
         String productOptionName,
-        int productQuantity
+        int productQuantity,
+        int productPrice
     ) {
 
     public ProductInfoInterfacesResponse toInterfaces() {
-        return new ProductInfoInterfacesResponse(productId, productName,productOptionId, productOptionName, productQuantity);
+        return new ProductInfoInterfacesResponse(productId, productName,productOptionId, productOptionName, productQuantity, productPrice);
     }
 }

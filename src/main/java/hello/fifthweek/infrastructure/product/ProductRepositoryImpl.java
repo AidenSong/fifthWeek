@@ -42,12 +42,12 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public ProductInfoDomainResponse productInfo(long productId) {
-        Optional<ProductInfoInfraEntity> response = productInfoJpaRepository.findById(productId);
-        if (response.isEmpty()) {
+    public ProductInfoDomainResponse productInfo(ProductInfoInfraEntity productInfoInfraEntity) {
+        ProductInfoInfraEntity response = productInfoJpaRepository.findByProductId(productInfoInfraEntity.getProductId(), productInfoInfraEntity.getProductOptionId());
+        if (response == null) {
             return null;
         }
-        return response.get().toDomain();
+        return response.toDomain();
     }
 
     @Override
@@ -61,7 +61,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity) {
-        return productQuantityJpaRepository.findByProductIdAndProductOption(productQuantityInfraEntity.getProductId(), productQuantityInfraEntity.getProductOptionId());
+        return productQuantityJpaRepository.findByProductIdAndProductOptionId(productQuantityInfraEntity.getProductId(), productQuantityInfraEntity.getProductOptionId());
     }
 
     public boolean productIndeAmount(ProductIndeAmountInfraEntity productIndeAmountInfraEntity) {

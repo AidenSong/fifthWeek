@@ -6,11 +6,11 @@ public record OrderInfoDomainResponse(
         long orderId,
         long memberId,
         String productList,
-        String productOptionList,
+        String productOptionIdList,
         String quantityList
     ) {
 
     public OrderInfoInterfacesResponse toInterfaces() {
-        return new OrderInfoInterfacesResponse(orderId, memberId, productList, productOptionList, quantityList);
+        return new OrderInfoInterfacesResponse(orderId, memberId, productList, productOptionIdList, quantityList);
     }
 }

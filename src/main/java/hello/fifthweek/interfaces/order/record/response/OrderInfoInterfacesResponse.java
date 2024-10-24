@@ -4,6 +4,6 @@ public record OrderInfoInterfacesResponse(
         long productId,
         long memberId,
         String productList,
-        String productOptionList,
+        String productOptionIdList,
         String quantityList
     ) { }

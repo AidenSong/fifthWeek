@@ -28,8 +28,8 @@ public class ProductService {
         return productRepository.productOptionRegist(productOptionRegistDomainRequest.toEntity());
     }
 
-    public ProductInfoInterfacesResponse productInfo(long productId) {
-        ProductInfoDomainResponse response = productRepository.productInfo(productId);
+    public ProductInfoInterfacesResponse productInfo(ProductInfoDomainRequest productInfoDomainRequest) {
+        ProductInfoDomainResponse response = productRepository.productInfo(productInfoDomainRequest.toEntity());
         return response.toInterfaces();
     }
 

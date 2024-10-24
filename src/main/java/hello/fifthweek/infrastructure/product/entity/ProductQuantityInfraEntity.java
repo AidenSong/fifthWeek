@@ -24,4 +24,7 @@ public class ProductQuantityInfraEntity {
 
     @Column(name = "PRODUCT_QUANTITY")
     private int productQuantity;
+
+    @Column(name = "PRODUCT_PRICE")
+    private int productPrice;
 }

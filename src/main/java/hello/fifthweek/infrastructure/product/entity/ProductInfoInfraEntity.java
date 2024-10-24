@@ -5,14 +5,12 @@ import hello.fifthweek.domain.product.record.response.ProductInfoDomainResponse;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "PRODUCT_INFO")
 public class ProductInfoInfraEntity {
 
     @Id
@@ -31,8 +29,11 @@ public class ProductInfoInfraEntity {
     @Column(name = "PRODUCT_QUANTITY")
     private int productQuantity;
 
+    @Column(name = "PRODUCT_PRICE")
+    private int productPrice;
+
 
     public ProductInfoDomainResponse toDomain() {
-        return new ProductInfoDomainResponse(productId, productName, productOptionId, productOptionName, productQuantity);
+        return new ProductInfoDomainResponse(productId, productName, productOptionId, productOptionName, productQuantity, productPrice);
     }
 }

@@ -6,10 +6,11 @@ public record ProductOptionRegistInterfacesRequest(
         long productId,
         long productOptionId,
         String productOptionName,
-        int productQuantity
+        int productQuantity,
+        int productPrice
     ) {
 
     public ProductOptionRegistDomainRequest toDomain() {
-        return new ProductOptionRegistDomainRequest(productId,productOptionId, productOptionName, productQuantity);
+        return new ProductOptionRegistDomainRequest(productId,productOptionId, productOptionName, productQuantity, productPrice);
     }
 }

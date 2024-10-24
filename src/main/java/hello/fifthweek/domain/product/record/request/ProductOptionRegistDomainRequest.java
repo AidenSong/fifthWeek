@@ -6,7 +6,8 @@ public record ProductOptionRegistDomainRequest(
         long productId,
         long productOptionId,
         String productOptionName,
-        int productQuantity
+        int productQuantity,
+        int productPrice
     ) {
 
     public ProductOptionRegistInfraEntity toEntity() {
@@ -15,6 +16,7 @@ public record ProductOptionRegistDomainRequest(
         entity.setProductOptionId(productOptionId);
         entity.setProductOptionName(productOptionName);
         entity.setProductQuantity(productQuantity);
+        entity.setProductPrice(productPrice);
 
         return entity;
     }

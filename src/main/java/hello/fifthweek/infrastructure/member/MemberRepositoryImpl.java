@@ -3,14 +3,8 @@ package hello.fifthweek.infrastructure.member;
 
 import hello.fifthweek.domain.member.MemberRepository;
 import hello.fifthweek.domain.member.record.response.MemberInfoDomainResponse;
-import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryInfraEntity;
-import hello.fifthweek.infrastructure.member.entitiy.MemberInfoInfraEntity;
-import hello.fifthweek.infrastructure.member.entitiy.MemberRegistInfraEntity;
-import hello.fifthweek.infrastructure.member.entitiy.PaymentAddHistoryInfraEntity;
-import hello.fifthweek.infrastructure.member.jparepository.MemberHistoryJpaRepository;
-import hello.fifthweek.infrastructure.member.jparepository.MemberInfoJpaRepository;
-import hello.fifthweek.infrastructure.member.jparepository.MemberRegistJpaRepository;
-import hello.fifthweek.infrastructure.member.jparepository.PaymentAddHistoryJpaRepository;
+import hello.fifthweek.infrastructure.member.entitiy.*;
+import hello.fifthweek.infrastructure.member.jparepository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +21,7 @@ public class MemberRepositoryImpl implements MemberRepository {
     private final MemberHistoryJpaRepository memberHistoryJpaRepository;
     private final MemberRegistJpaRepository memberRegistJpaRepository;
     private final PaymentAddHistoryJpaRepository paymentAddHistoryJpaRepository;
+    private final PayJpaRepository payJpaRepository;
 
 
     @Override
@@ -65,5 +60,11 @@ public class MemberRepositoryImpl implements MemberRepository {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean pay(PayInfraEntity payInfraEntity) {
+
+        return false;
     }
 }
