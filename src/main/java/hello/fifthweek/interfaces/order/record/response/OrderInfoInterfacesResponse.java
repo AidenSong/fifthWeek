@@ -1,9 +1,9 @@
 package hello.fifthweek.interfaces.order.record.response;
 
 public record OrderInfoInterfacesResponse(
-        long productId,
+        long orderId,
         long memberId,
-        String productList,
+        String productIdList,
         String productOptionIdList,
         String quantityList
     ) { }

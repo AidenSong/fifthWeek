@@ -1,6 +1,7 @@
-package hello.fifthweek.infrastructure.member.jparepository;
+package hello.fifthweek.infrastructure.payment.jparepository;
 
-import hello.fifthweek.infrastructure.member.entitiy.PaymentAddHistoryInfraEntity;
+
+import hello.fifthweek.infrastructure.payment.entity.PaymentAddHistoryInfraEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PaymentAddHistoryJpaRepository extends JpaRepository<PaymentAddHistoryInfraEntity, Long> {

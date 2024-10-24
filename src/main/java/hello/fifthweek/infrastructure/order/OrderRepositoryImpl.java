@@ -10,6 +10,8 @@ import hello.fifthweek.infrastructure.order.jparepository.OrderInfoJpaRepository
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class OrderRepositoryImpl implements OrderRepository {
@@ -20,12 +22,13 @@ public class OrderRepositoryImpl implements OrderRepository {
 
 
     @Override
-    public OrderInfoDomainResponse orderInfo(OrderInfoInfraEntity orderInfoInfraEntity) {
-        OrderInfoInfraEntity response = orderInfoJpaRepository.findByOrderIdAndMemberId(orderInfoInfraEntity.getOrderId(), orderInfoInfraEntity.getMemberId());
-        if (response == null) {
+    public OrderInfoDomainResponse orderInfo(long orderId) {
+//        OrderInfoInfraEntity response = orderInfoJpaRepository.findByOrderIdAndMemberId(orderInfoInfraEntity.getOrderId(), orderInfoInfraEntity.getMemberId());
+        Optional<OrderInfoInfraEntity> response = orderInfoJpaRepository.findById(orderId);
+        if (response.get() == null) {
             return null;
         }
-        return response.toDomain();
+        return response.get().toDomain();
     }
 
     @Override

@@ -1,6 +1,6 @@
-package hello.fifthweek.domain.member.record.request;
+package hello.fifthweek.domain.payment.record.request;
 
-import hello.fifthweek.infrastructure.member.entitiy.PaymentAddHistoryInfraEntity;
+import hello.fifthweek.infrastructure.payment.entity.PaymentAddHistoryInfraEntity;
 
 public record PaymentAddHistoryDomainRequest(
         long memberId,

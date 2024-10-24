@@ -11,16 +11,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "PAYMENT_HISTORY")
-public class PaymentAddHistoryInfraEntity {
+@Table(name = "MEMBER_INFO")
+public class UpdateMemberBalanceInfraEntity {
+
 
     @Id
     @Column(name = "MEMBER_ID")
     private long memberId;
 
-    @Column(name = "ORDER_ID")
-    private long orderId;
-
-    @Column(name = "PAYMENT_AMOUNT")
-    private int paymentAmount;
+    @Column(name = "MEMBER_BALANCE")
+    private int memberBalance;
 }

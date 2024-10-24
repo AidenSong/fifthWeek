@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface OrderInfoJpaRepository extends JpaRepository<OrderInfoInfraEntity, Long> {
 
 
-    OrderInfoInfraEntity findByOrderIdAndMemberId(long productId, long memberId);
+//    OrderInfoInfraEntity findByOrderIdAndMemberId(long orderId, long memberId);
 }

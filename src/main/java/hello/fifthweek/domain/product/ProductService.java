@@ -28,8 +28,8 @@ public class ProductService {
         return productRepository.productOptionRegist(productOptionRegistDomainRequest.toEntity());
     }
 
-    public ProductInfoInterfacesResponse productInfo(ProductInfoDomainRequest productInfoDomainRequest) {
-        ProductInfoDomainResponse response = productRepository.productInfo(productInfoDomainRequest.toEntity());
+    public ProductInfoInterfacesResponse productInfo(long productId, long productOptionId) {
+        ProductInfoDomainResponse response = productRepository.productInfo(productId, productOptionId);
         return response.toInterfaces();
     }
 
@@ -37,13 +37,13 @@ public class ProductService {
         return productRepository.productAddHistory(productAddHistoryDomainRequest.toEntity());
     }
 
-    public int productQuantity(ProductQuantityDomainRequest productQuantityDomainRequest) {
-        ProductQuantityInfraEntity response = productRepository.productQuantity(productQuantityDomainRequest.toEntity());
+    public int productQuantity(long productId, long productOptionId) {
+        ProductQuantityInfraEntity response = productRepository.productQuantity(productId, productOptionId);
         return response.getProductQuantity();
     }
 
     public boolean productIndeAmount(ProductIndeAmountDomainRequest productIndeAmountDomainRequest) {
-        ProductQuantityInfraEntity quantityResponse = productRepository.productQuantity(new ProductQuantityDomainRequest(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOptionId()).toEntity());
+        ProductQuantityInfraEntity quantityResponse = productRepository.productQuantity(productIndeAmountDomainRequest.productId(), productIndeAmountDomainRequest.productOptionId());
         int quantity = quantityResponse.getProductQuantity();
         int resultQuantity = quantityResponse.getProductQuantity() + quantity;
 

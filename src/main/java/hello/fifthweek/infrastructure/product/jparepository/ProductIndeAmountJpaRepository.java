@@ -18,5 +18,5 @@ public interface ProductIndeAmountJpaRepository extends JpaRepository<ProductInd
 
     @Modifying
     @Query(value = "UPDATE PRODUCT_OPTION_INFO p SET p.PRODUCT_QUANTITY = :productQuantity WHERE p.PRODUCT_ID = :productId AND p.PRODUCT_OPTION_ID = :productOptionId", nativeQuery = true)
-    ProductQuantityInfraEntity updateByProductId(@Param("productId") long productid, @Param("productOptionId") long productOptionId, @Param("productQuantity") long productQuantity);
+    int updateByProductId(@Param("productId") long productid, @Param("productOptionId") long productOptionId, @Param("productQuantity") long productQuantity);
 }

@@ -5,6 +5,7 @@ import hello.fifthweek.domain.member.MemberRepository;
 import hello.fifthweek.domain.member.record.response.MemberInfoDomainResponse;
 import hello.fifthweek.infrastructure.member.entitiy.*;
 import hello.fifthweek.infrastructure.member.jparepository.*;
+import hello.fifthweek.infrastructure.payment.entity.PayInfraEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -20,8 +21,7 @@ public class MemberRepositoryImpl implements MemberRepository {
     private final MemberInfoJpaRepository memberInfoJpaRepository;
     private final MemberHistoryJpaRepository memberHistoryJpaRepository;
     private final MemberRegistJpaRepository memberRegistJpaRepository;
-    private final PaymentAddHistoryJpaRepository paymentAddHistoryJpaRepository;
-    private final PayJpaRepository payJpaRepository;
+    private final UpdateMemberBalanceJpaRepository updateMemberBalanceJpaRepository;
 
 
     @Override
@@ -53,18 +53,15 @@ public class MemberRepositoryImpl implements MemberRepository {
         return true;
     }
 
+
     @Override
-    public boolean paymentAddHistory(PaymentAddHistoryInfraEntity paymentAddHistoryInfraEntity) {
-        PaymentAddHistoryInfraEntity response = paymentAddHistoryJpaRepository.save(paymentAddHistoryInfraEntity);
+    public boolean updateMemberBalance(UpdateMemberBalanceInfraEntity updateMemberBalanceInfraEntity) {
+
+        UpdateMemberBalanceInfraEntity response = updateMemberBalanceJpaRepository.updateMemberBalance(updateMemberBalanceInfraEntity.getMemberId(), updateMemberBalanceInfraEntity.getMemberBalance());
         if (response == null) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public boolean pay(PayInfraEntity payInfraEntity) {
-
-        return false;
-    }
 }

@@ -4,4 +4,5 @@ import hello.fifthweek.infrastructure.product.entity.ProductAddHistoryInfraEntit
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductAddHistoryJpaRepository extends JpaRepository<ProductAddHistoryInfraEntity, Long> {
+
 }

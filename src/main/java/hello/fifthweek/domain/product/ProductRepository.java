@@ -12,11 +12,11 @@ public interface ProductRepository {
 
     boolean productOptionRegist(ProductOptionRegistInfraEntity productOptionRegistInfraEntity);
 
-    ProductInfoDomainResponse productInfo(ProductInfoInfraEntity productInfoInfraEntity);
+    ProductInfoDomainResponse productInfo(long productId, long productOptionId);
 
     boolean productAddHistory(ProductAddHistoryInfraEntity productAddHistoryInfraEntity);
 
-    ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity);
+    ProductQuantityInfraEntity productQuantity(long productId, long productOptionId);
 
     boolean productIndeAmount(ProductIndeAmountInfraEntity productIndeAmountInfraEntity);
 }

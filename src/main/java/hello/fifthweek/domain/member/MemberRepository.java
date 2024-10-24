@@ -3,8 +3,7 @@ package hello.fifthweek.domain.member;
 import hello.fifthweek.domain.member.record.response.MemberInfoDomainResponse;
 import hello.fifthweek.infrastructure.member.entitiy.MemberHistoryInfraEntity;
 import hello.fifthweek.infrastructure.member.entitiy.MemberRegistInfraEntity;
-import hello.fifthweek.infrastructure.member.entitiy.PayInfraEntity;
-import hello.fifthweek.infrastructure.member.entitiy.PaymentAddHistoryInfraEntity;
+import hello.fifthweek.infrastructure.member.entitiy.UpdateMemberBalanceInfraEntity;
 
 public interface MemberRepository {
 
@@ -14,7 +13,5 @@ public interface MemberRepository {
 
     boolean memberAddHistory(MemberHistoryInfraEntity memberHistoryInfraEntity);
 
-    boolean paymentAddHistory(PaymentAddHistoryInfraEntity paymentAddHistoryInfraEntity);
-
-    boolean pay(PayInfraEntity payInfraEntity);
+    boolean updateMemberBalance(UpdateMemberBalanceInfraEntity updateMemberBalanceInfraEntity);
 }

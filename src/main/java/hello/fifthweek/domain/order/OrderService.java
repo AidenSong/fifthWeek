@@ -19,8 +19,8 @@ public class OrderService {
 
 
 
-    public OrderInfoInterfacesResponse orderInfo(OrderInfoDomainRequest orderInfoDomainRequest) {
-        OrderInfoDomainResponse response = orderRepository.orderInfo(orderInfoDomainRequest.toEntity());
+    public OrderInfoInterfacesResponse orderInfo(long orderId) {
+        OrderInfoDomainResponse response = orderRepository.orderInfo(orderId);
         return response.toInterfaces();
     }
 

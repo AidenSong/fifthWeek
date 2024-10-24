@@ -42,8 +42,8 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public ProductInfoDomainResponse productInfo(ProductInfoInfraEntity productInfoInfraEntity) {
-        ProductInfoInfraEntity response = productInfoJpaRepository.findByProductId(productInfoInfraEntity.getProductId(), productInfoInfraEntity.getProductOptionId());
+    public ProductInfoDomainResponse productInfo(long productId, long productOptionId) {
+        ProductInfoInfraEntity response = productInfoJpaRepository.findByProductIdAndProductOptionId(productId, productOptionId);
         if (response == null) {
             return null;
         }
@@ -60,13 +60,13 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public ProductQuantityInfraEntity productQuantity(ProductQuantityInfraEntity productQuantityInfraEntity) {
-        return productQuantityJpaRepository.findByProductIdAndProductOptionId(productQuantityInfraEntity.getProductId(), productQuantityInfraEntity.getProductOptionId());
+    public ProductQuantityInfraEntity productQuantity(long productId, long productOptionId) {
+        return productQuantityJpaRepository.findByProductIdAndProductOptionId(productId, productOptionId);
     }
 
     public boolean productIndeAmount(ProductIndeAmountInfraEntity productIndeAmountInfraEntity) {
-        ProductQuantityInfraEntity response = productIndeAmountJpaRepository.updateByProductId(productIndeAmountInfraEntity.getProductId(), productIndeAmountInfraEntity.getProductOptionId(), productIndeAmountInfraEntity.getProductQuantity());
-        if (response == null) {
+        int response = productIndeAmountJpaRepository.updateByProductId(productIndeAmountInfraEntity.getProductId(), productIndeAmountInfraEntity.getProductOptionId(), productIndeAmountInfraEntity.getProductQuantity());
+        if (response <= 0) {
             return false;
         }
         return true;
