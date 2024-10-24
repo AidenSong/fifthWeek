@@ -3,8 +3,8 @@ package hello.fifthweek.interfaces.member;
 
 import hello.fifthweek.domain.member.MemberService;
 import hello.fifthweek.interfaces.member.record.request.MemberHistoryInterfacesRequest;
-
 import hello.fifthweek.interfaces.member.record.request.MemberRegistInterfacesRequest;
+import hello.fifthweek.interfaces.member.record.request.MemberRegistInterfacesRequest.PaymentAddHistoryInterfacesRequest;
 import hello.fifthweek.interfaces.member.record.response.MemberInfoInterfacesResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -34,9 +34,15 @@ public class MemberController {
         return memberService.memberInfo(memberId);
     }
 
-    @PostMapping("/addHistory")
+    @PostMapping("/memberAddHistory")
     @Operation(summary = "회원기록 추가")
-    public boolean addHistory(@RequestBody MemberHistoryInterfacesRequest memberHistoryInterfacesRequest) {
-        return memberService.addHistory(memberHistoryInterfacesRequest.toDomain());
+    public boolean memberAddHistory(@RequestBody MemberHistoryInterfacesRequest memberHistoryInterfacesRequest) {
+        return memberService.memberAddHistory(memberHistoryInterfacesRequest.toDomain());
+    }
+
+    @PostMapping("/paymentAddHistory")
+    @Operation(summary = "결제기록 추가")
+    public boolean paymentAddHistory(@RequestBody PaymentAddHistoryInterfacesRequest paymentAddHistoryInterfacesRequest) {
+        return memberService.paymentAddHistory(paymentAddHistoryInterfacesRequest.toDomain());
     }
 }

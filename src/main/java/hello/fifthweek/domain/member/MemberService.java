@@ -3,6 +3,7 @@ package hello.fifthweek.domain.member;
 
 import hello.fifthweek.domain.member.record.request.MemberHistoryDomainRequest;
 import hello.fifthweek.domain.member.record.request.MemberRegistDomainRequest;
+import hello.fifthweek.domain.member.record.request.PaymentAddHistoryDomainRequest;
 import hello.fifthweek.domain.member.record.response.MemberInfoDomainResponse;
 import hello.fifthweek.interfaces.member.record.response.MemberInfoInterfacesResponse;
 import jakarta.transaction.Transactional;
@@ -21,14 +22,17 @@ public class MemberService {
         return memberRepository.memberRegist(memberRegistDomainRequest.toEntity());
     }
 
-
     public MemberInfoInterfacesResponse memberInfo(long memberId) {
         MemberInfoDomainResponse response = memberRepository.memberInfo(memberId);
         return response.toInterfaces();
     }
 
-
-    public boolean addHistory(MemberHistoryDomainRequest memberHistoryDomainRequest) {
-        return memberRepository.memberHistory(memberHistoryDomainRequest.toEntity());
+    public boolean memberAddHistory(MemberHistoryDomainRequest memberHistoryDomainRequest) {
+        return memberRepository.memberAddHistory(memberHistoryDomainRequest.toEntity());
     }
+
+    public boolean paymentAddHistory(PaymentAddHistoryDomainRequest paymentAddHistoryDomainRequest) {
+        return memberRepository.paymentAddHistory(paymentAddHistoryDomainRequest.toEntity());
+    }
+
 }

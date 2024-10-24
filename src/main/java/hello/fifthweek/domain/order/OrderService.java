@@ -27,4 +27,5 @@ public class OrderService {
     public boolean orderAddHistory(OrderAddHistoryDomainRequest orderAddHistoryDomainRequest) {
         return orderRepository.orderAddHistory(orderAddHistoryDomainRequest.toEntity());
     }
+
 }
