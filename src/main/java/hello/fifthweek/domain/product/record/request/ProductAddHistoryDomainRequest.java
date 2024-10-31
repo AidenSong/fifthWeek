@@ -8,7 +8,6 @@ public record ProductAddHistoryDomainRequest(
         long productId,
         long productOptionId,
         int indeAmount,
-        int totalQuantity,
         LocalDateTime createdAt
 ) {
 
@@ -18,8 +17,7 @@ public record ProductAddHistoryDomainRequest(
         entity.setProducId(productId);
         entity.setProductOptionId(productOptionId);
         entity.setIndeAmount(indeAmount);
-        entity.setTotalQuantity(totalQuantity);
-        entity.setCreateAt(createdAt);
+        entity.setCreatedAt(createdAt);
 
         return entity;
     }

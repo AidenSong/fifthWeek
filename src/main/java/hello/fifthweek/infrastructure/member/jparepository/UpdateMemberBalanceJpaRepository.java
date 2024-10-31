@@ -11,5 +11,5 @@ public interface UpdateMemberBalanceJpaRepository extends JpaRepository<UpdateMe
 
     @Modifying
     @Query(value = "UPDATE MEMBER_INFO SET MEMBER_BALANCE = :memberBalance WHERE MEMBER_ID = :memberId", nativeQuery = true)
-    UpdateMemberBalanceInfraEntity updateMemberBalance(@Param("memberId") Long memberId, @Param("memberBalance") long memberBalance);
+    int updateMemberBalance(@Param("memberId") Long memberId, @Param("memberBalance") long memberBalance);
 }

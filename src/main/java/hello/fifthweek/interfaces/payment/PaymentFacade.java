@@ -63,6 +63,8 @@ public class PaymentFacade {
             }
         }
 
+        System.out.println("memberInfo.memberBalance() = " + memberInfo.memberBalance());
+        System.out.println("sumPrice = " + sumPrice);
         // sum = 충전금액 - 재품 가격 합계
         int sum = memberInfo.memberBalance() - sumPrice;
         if (sum < 0) {
@@ -95,6 +97,9 @@ public class PaymentFacade {
             }
         }
 
+        System.out.println("memberInfo.memberId() = " + memberInfo.memberId());
+        System.out.println("orderInfo.orderId() = " + orderInfo.orderId());
+        System.out.println("sumPrice = " + sumPrice);
         // 결제 기록 추가
         paymentAddHistory(memberInfo.memberId(), orderInfo.orderId(), sumPrice);
         return true;

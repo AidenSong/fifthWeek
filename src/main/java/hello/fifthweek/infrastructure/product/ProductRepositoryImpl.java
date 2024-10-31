@@ -8,7 +8,8 @@ import hello.fifthweek.infrastructure.product.jparepository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -20,9 +21,12 @@ public class ProductRepositoryImpl implements ProductRepository {
     private final ProductAddHistoryJpaRepository productAddHistoryJpaRepository;
     private final ProductIndeAmountJpaRepository productIndeAmountJpaRepository;
     private final ProductQuantityJpaRepository productQuantityJpaRepository;
+    private final PopularProductDayJpaRepository popularProductDayJpaRepository;
+    private final PopularProductMonthInfraJpaRepository popularProductMonthInfraJpaRepository;
 
 
 
+    //
     @Override
     public boolean productRegist(ProductRegistInfraEntity productRegistInfraEntity) {
         ProductRegistInfraEntity response = productRegistJpaRepository.save(productRegistInfraEntity);
@@ -32,6 +36,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         return true;
     }
 
+    //
     @Override
     public boolean productOptionRegist(ProductOptionRegistInfraEntity productOptionRegistInfraEntity) {
         ProductOptionRegistInfraEntity response = productOptionRegistJpaRepository.save(productOptionRegistInfraEntity);
@@ -41,6 +46,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         return true;
     }
 
+    //
     @Override
     public ProductInfoDomainResponse productInfo(long productId, long productOptionId) {
         ProductInfoInfraEntity response = productInfoJpaRepository.findByProductIdAndProductOptionId(productId, productOptionId);
@@ -50,6 +56,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         return response.toDomain();
     }
 
+    //
     @Override
     public boolean productAddHistory(ProductAddHistoryInfraEntity productAddHistoryInfraEntity) {
         ProductAddHistoryInfraEntity response = productAddHistoryJpaRepository.save(productAddHistoryInfraEntity);
@@ -59,11 +66,13 @@ public class ProductRepositoryImpl implements ProductRepository {
         return true;
     }
 
+    //
     @Override
     public ProductQuantityInfraEntity productQuantity(long productId, long productOptionId) {
         return productQuantityJpaRepository.findByProductIdAndProductOptionId(productId, productOptionId);
     }
 
+    //
     public boolean productIndeAmount(ProductIndeAmountInfraEntity productIndeAmountInfraEntity) {
         int response = productIndeAmountJpaRepository.updateByProductId(productIndeAmountInfraEntity.getProductId(), productIndeAmountInfraEntity.getProductOptionId(), productIndeAmountInfraEntity.getProductQuantity());
         if (response <= 0) {
@@ -71,4 +80,18 @@ public class ProductRepositoryImpl implements ProductRepository {
         }
         return true;
     }
+
+    //
+    @Override
+    public List<PopularProductDayEntity> popularProductDay(LocalDate startDate, LocalDate endDate) {
+        return popularProductDayJpaRepository.findByProductId(startDate, endDate);
+    }
+
+    //
+    @Override
+    public List<PopularProductMonthEntity> popularProductMonth(LocalDate startDate, LocalDate endDate) {
+        return popularProductMonthInfraJpaRepository.findByProductId(startDate, endDate);
+    }
+
+
 }

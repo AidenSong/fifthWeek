@@ -2,7 +2,6 @@ package hello.fifthweek.domain.order;
 
 
 import hello.fifthweek.domain.order.record.request.OrderAddHistoryDomainRequest;
-import hello.fifthweek.domain.order.record.request.OrderInfoDomainRequest;
 import hello.fifthweek.domain.order.record.response.OrderInfoDomainResponse;
 import hello.fifthweek.interfaces.order.record.response.OrderInfoInterfacesResponse;
 import jakarta.transaction.Transactional;

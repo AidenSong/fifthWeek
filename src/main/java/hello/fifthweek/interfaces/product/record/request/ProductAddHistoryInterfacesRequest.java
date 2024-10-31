@@ -8,12 +8,11 @@ public record ProductAddHistoryInterfacesRequest(
         long productId,
         long productOptionId,
         int indeAmount,
-        int totalQuantity,
         LocalDateTime createdAt
     ) {
 
 
     public ProductAddHistoryDomainRequest toDomain() {
-        return new ProductAddHistoryDomainRequest(productId, productOptionId, indeAmount, totalQuantity, createdAt);
+        return new ProductAddHistoryDomainRequest(productId, productOptionId, indeAmount, createdAt);
     }
 }

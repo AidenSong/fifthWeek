@@ -2,7 +2,6 @@ package hello.fifthweek.interfaces.payment;
 
 
 import hello.fifthweek.interfaces.payment.record.request.PayInterfacesRequest;
-import hello.fifthweek.interfaces.payment.record.request.PaymentAddHistoryInterfacesRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

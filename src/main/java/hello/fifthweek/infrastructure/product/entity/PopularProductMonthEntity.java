@@ -4,27 +4,28 @@ package hello.fifthweek.infrastructure.product.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+
+
 @Entity
 @Getter
 @Setter
-@Table(name = "PRODUCT_HISTORY")
-public class ProductAddHistoryInfraEntity {
+public class PopularProductMonthEntity {
+
 
     @Id
     @Column(name = "PRODUCT_ID")
-    private long producId;
+    private long productId;
 
-    @Column(name = "PRODUCT_OPTION_ID")
-    private long productOptionId;
+    @Column(name = "PRODUCT_NAME")
+    private String productName;
 
-    @Column(name = "INDE_AMOUNT")
-    private int indeAmount;
+    @Column(name = "TOTAL_SALES")
+    private int totalSales;
 
     @Column(name = "CREATED_AT")
     private LocalDateTime createdAt;
